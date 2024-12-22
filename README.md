@@ -4,9 +4,13 @@
 ![alt text[]()](https://raw.githubusercontent.com/ran-sama/postquantum-mlkem768x25519-openssl-debian/refs/heads/master/python_oqs_openssl.png)
 
 ## Compile
+Go to the release artifacts and pick the latest stable or candidate:  
+https://github.com/open-quantum-safe/oqs-provider/releases  
+  
 ```
-git clone https://github.com/open-quantum-safe/oqs-provider.git
-cd oqs-provider
+wget https://github.com/open-quantum-safe/oqs-provider/archive/refs/tags/0.8.0-rc1.tar.gz
+tar -xzf 0.8.0-rc1.tar.gz
+cd oqs-provider-0.8.0-rc1
 env OPENSSL_ROOT=/usr/bin/openssl CMAKE_PARAMS="-DOPENSSL_CRYPTO_LIBRARY=/usr/lib/arm-linux-gnueabihf/libcrypto.so" bash scripts/fullbuild.sh
 sudo cmake --install _build
 scripts/runtests.sh
