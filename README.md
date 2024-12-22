@@ -14,6 +14,7 @@ cd oqs-provider-0.8.0-rc1
 env OPENSSL_ROOT=/usr/bin/openssl CMAKE_PARAMS="-DOPENSSL_CRYPTO_LIBRARY=/usr/lib/arm-linux-gnueabihf/libcrypto.so" bash scripts/fullbuild.sh
 sudo cmake --install _build
 scripts/runtests.sh
+cd ..
 ```
 
 ## Configure services
