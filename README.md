@@ -6,7 +6,12 @@
 ## Compile
 Go to the release artifacts and pick the latest stable or candidate:  
 https://github.com/open-quantum-safe/oqs-provider/releases  
-  
+I am building on 32-bit Exynos 5422, so if you are on arm64 or amd64 locate your own binaries for the µarch:  
+```
+whereis openssl
+whereis libcrypto.so
+```
+These are used here:  
 ```
 wget https://github.com/open-quantum-safe/oqs-provider/archive/refs/tags/0.8.0-rc1.tar.gz
 tar -xzf 0.8.0-rc1.tar.gz
