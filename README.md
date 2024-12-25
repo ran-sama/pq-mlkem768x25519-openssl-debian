@@ -1,5 +1,5 @@
 # pq-mlkem768x25519-openssl-debian
- Post-quantum key exchange on Debian: OpenSSL, oqs-provider and Python 3.  
+ Post-quantum key encapsulation on Debian: OpenSSL, oqs-provider and Python 3.  
   
 ![alt text[]()](https://raw.githubusercontent.com/ran-sama/postquantum-mlkem768x25519-openssl-debian/refs/heads/master/python_oqs_openssl.png)
 
@@ -13,9 +13,9 @@ whereis libcrypto.so
 ```
 These are used here:  
 ```
-wget https://github.com/open-quantum-safe/oqs-provider/archive/refs/tags/0.8.0-rc1.tar.gz
-tar -xzf 0.8.0-rc1.tar.gz
-cd oqs-provider-0.8.0-rc1
+wget https://github.com/open-quantum-safe/oqs-provider/archive/refs/tags/0.8.0.tar.gz
+tar -xzf 0.8.0.tar.gz
+cd oqs-provider-0.8.0
 env OPENSSL_ROOT=/usr/bin/openssl CMAKE_PARAMS="-DOPENSSL_CRYPTO_LIBRARY=/usr/lib/arm-linux-gnueabihf/libcrypto.so" bash scripts/fullbuild.sh
 sudo cmake --install _build
 scripts/runtests.sh
@@ -46,7 +46,7 @@ Group=ran
 [Install]
 WantedBy=multi-user.target
 ```
-## Comment out default KEx in Python 3 server
+## Comment out default KEX in Python 3 server
 ```
 #sslcontext.set_ecdh_curve("secp521r1")#works well on firefox but you can also use secp384r1
 ```
