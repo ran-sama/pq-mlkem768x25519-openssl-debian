@@ -2,7 +2,7 @@
  Post-quantum key encapsulation on Debian: OpenSSL, oqs-provider and Python 3.  
   
 ![alt text[]()](https://raw.githubusercontent.com/ran-sama/postquantum-mlkem768x25519-openssl-debian/refs/heads/master/python_oqs_openssl.png)  
-If you configure your production conf (not recommended) rather than a copy (recommended) you could see this output:  
+Checking if the module is loaded is easy, but I recommend working with a copy and not edit your system wide conf:  
 ![alt text](https://raw.githubusercontent.com/ran-sama/pq-mlkem768x25519-openssl-debian/refs/heads/master/quantum_safe.png)  
 
 ## Compile
