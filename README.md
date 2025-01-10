@@ -1,7 +1,9 @@
 # pq-mlkem768x25519-openssl-debian
  Post-quantum key encapsulation on Debian: OpenSSL, oqs-provider and Python 3.  
   
-![alt text[]()](https://raw.githubusercontent.com/ran-sama/postquantum-mlkem768x25519-openssl-debian/refs/heads/master/python_oqs_openssl.png)
+![alt text[]()](https://raw.githubusercontent.com/ran-sama/postquantum-mlkem768x25519-openssl-debian/refs/heads/master/python_oqs_openssl.png)  
+If you configure your production conf (not recommended) rather than a copy (recommended) you could see this output:  
+![alt text](https://raw.githubusercontent.com/ran-sama/pq-mlkem768x25519-openssl-debian/refs/heads/master/quantum_safe.png)  
 
 ## Compile
 Go to the release artifacts and pick the latest stable or candidate:  
