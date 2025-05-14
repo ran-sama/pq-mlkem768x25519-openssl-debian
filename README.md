@@ -1,29 +1,10 @@
 # pq-mlkem768x25519-openssl-debian
- Post-quantum key encapsulation on Debian: OpenSSL, oqs-provider and Python 3.  
+ Post-quantum key encapsulation on Debian: OpenSSL 3.50. and Python 3.  
   
 ![alt text[]()](https://raw.githubusercontent.com/ran-sama/postquantum-mlkem768x25519-openssl-debian/refs/heads/master/python_oqs_openssl.png)  
-Checking if the module is loaded is easy, but I recommend working with a copy and not edit your system wide conf:  
-![alt text](https://raw.githubusercontent.com/ran-sama/pq-mlkem768x25519-openssl-debian/refs/heads/master/quantum_safe.png)  
-
-## Compile
-Go to the release artifacts and pick the latest stable or candidate:  
-https://github.com/open-quantum-safe/oqs-provider/releases  
-I am building on 32-bit Exynos 5422, so if you are on arm64 or amd64 locate your own binaries for the µarch:  
-```
-whereis openssl
-whereis libcrypto.so
-```
-These are used here:  
-```
-wget https://github.com/open-quantum-safe/oqs-provider/archive/refs/tags/0.8.0.tar.gz
-tar -xzf 0.8.0.tar.gz
-cd oqs-provider-0.8.0
-env OPENSSL_ROOT=/usr/bin/openssl CMAKE_PARAMS="-DOPENSSL_CRYPTO_LIBRARY=/usr/lib/arm-linux-gnueabihf/libcrypto.so" bash scripts/fullbuild.sh
-sudo cmake --install _build
-scripts/runtests.sh
-cd ..
-```
-
+  
+Formerly this would require the Open Quantum Safe (OQS) project as OpenSSL module, but it runs on plain OpenSSL 3.5.0 now without any external dependencies and compilation steps! You only need Python 3.14+ and OpenSSL 3.5.0+ which are already shipped in Debian 13 Trixie as of April 8th, 2025.  
+  
 ## Configure services
 ```
 [Unit]
