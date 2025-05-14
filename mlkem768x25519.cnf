@@ -13,7 +13,7 @@
 # defined.
 HOME			= .
 
- # Use this in order to automatically load providers.
+# Use this in order to automatically load providers.
 openssl_conf = openssl_init
 
 # Comment out the next line to ignore configuration errors
@@ -51,14 +51,12 @@ tsa_policy3 = 1.2.3.4.5.7
 # .include fipsmodule.cnf
 
 [openssl_init]
-ssl_conf = ssl_configuration
 providers = provider_sect
+ssl_conf = ssl_configuration
 
 # List of providers to load
 [provider_sect]
 default = default_sect
-oqsprovider = oqsprovider_sect
-
 # The fips section name should match the section name inside the
 # included fipsmodule.cnf.
 # fips = fips_sect
@@ -71,12 +69,9 @@ oqsprovider = oqsprovider_sect
 # becomes unavailable in openssl.  As a consequence applications depending on
 # OpenSSL may not work correctly which could lead to significant system
 # problems including inability to remotely access the system.
-
 [default_sect]
-activate = 1
+# activate = 1
 
-[oqsprovider_sect]
-activate = 1
 
 ####################################################################
 [ ca ]
@@ -98,7 +93,7 @@ serial		= $dir/serial 		# The current serial number
 crlnumber	= $dir/crlnumber	# the current crl number
 					# must be commented out to leave a V1 CRL
 crl		= $dir/crl.pem 		# The current CRL
-private_key	= $dir/private/cakey.pem# The private key
+private_key	= $dir/private/cakey.pem # The private key
 
 x509_extensions	= usr_cert		# The extensions to add to the cert
 
@@ -336,8 +331,8 @@ tsa_name		= yes	# Must the TSA name be included in the reply?
 				# (optional, default: no)
 ess_cert_id_chain	= no	# Must the ESS cert id chain be included?
 				# (optional, default: no)
-ess_cert_id_alg		= sha1	# algorithm to compute certificate
-				# identifier (optional, default: sha1)
+ess_cert_id_alg		= sha256	# algorithm to compute certificate
+				# identifier (optional, default: sha256)
 
 [insta] # CMP using Insta Demo CA
 # Message transfer
@@ -406,5 +401,5 @@ MinProtocol = DTLSv1.2
 CipherString = ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305
 # Sets the available ciphersuites for TLSv1.3
 Ciphersuites = TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
-#KEX and KEM groups
-Groups = X25519MLKEM768:SecP256r1MLKEM768:secp521r1:secp384r1
+# KEX and KEM groups
+Groups = X25519MLKEM768:secp521r1:secp384r1
